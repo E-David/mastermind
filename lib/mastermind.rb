@@ -5,3 +5,4 @@ module Mastermind
 end
 
 require_relative "./mastermind/cell.rb"
+require_relative "./mastermind/player.rb"
