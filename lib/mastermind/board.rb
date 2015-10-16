@@ -1,7 +1,6 @@
 module Mastermind
   class Board
-  	attr_accessor :tries_left
-    attr_reader :slot_rows
+    attr_reader :slot_rows, :tries_left
     def initialize(input = {})
       @slot_rows = input.fetch(:slot_rows, default_row_number)
       @tries_left = (slot_rows.size - 1)
@@ -13,20 +12,16 @@ module Mastermind
 
     def list_rows
     	slot_rows.each { |x| p x }
-    	@tries_left -= 1
     end
 
     def rows_left
     	slot_rows[0 - (tries_left)] = "NOOOOOOO"
     end
 
-    def results
-    	return "yay" if lose?
+    def game_over
+    	return :winner if win?
+    	return :loser if lose?
     	false
-    end
-
-    def lose?
-    	@tries_left == 7
     end
 
     private
