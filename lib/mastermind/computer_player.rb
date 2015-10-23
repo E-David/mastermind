@@ -5,6 +5,14 @@ module Mastermind
 			@name = name
 			@chosen_slots = slots.row.rand_array
 		end
+
+		def if_mastermind
+			@chosen_slots = slots.row.rand_array
+		end
+
+		def if_player
+			@chosen_slots = slots.row.rand_array
+		end
 	end
 end
 
